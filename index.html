@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./logo_dl.png" type="image/x-icon">
+
+</head>
+<script>
+function updateClock(){
+    const now = new Date()
+
+    const dateTime = now.toLocaleString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    })
+
+    document.getElementById("clock").innerText = dateTime
+}
+
+setInterval(updateClock, 1000)
+updateClock()
+</script>
+
+<body>
+    <h1>
+        <img src="./logo_dl.png" alt="Logo DL" class="logo" style="width: 70px; margin-right: 10px; margin-left: 10px;">
+        Lista de Tarefas DL
+        <img src="./Xiaomi_logo_(2021-).svg.png " alt="Logo Xiaomi" class="logo"
+            style="width: 50px; position: absolute;margin-right: 10px; margin-left: 10px;">
+    </h1>
+    <div class="box">
+        <form id="formTask">
+            <input type="text" id="taskInput" placeholder="Digite sua tarefa..." required>
+            <input type="datetime-local" id="startDate" title="Data de início" required>
+           <input type="datetime-local" id="endDate" title="Prazo da tarefa" required>
+            <button id="addTaskBtn" type="submit">
+                Adicionar
+            </button>
+
+        </form>
+
+        <ul id="tasksList">
+
+        </ul>
+        <button id="orderTasks">Ordenar por nome</button>
+        <button id="clearTasksBtn">Limpar Lista</button>
+
+    </div>
+    <div class="modal" id="modal" style="display: none;">
+        <div class="modal-content" id="modalContent">
+            <div id="modal-message">Conteúdo</div>
+            <button id="modal-close">Fechar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div id="clock" style="margin-top:auto; font-size:15px; color: #ff6900; border: 1px solid #ff6900;"></div>
+
+</body>
+
+</html>
+
